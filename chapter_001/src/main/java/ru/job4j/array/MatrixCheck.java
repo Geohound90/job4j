@@ -1,7 +1,6 @@
 package ru.job4j.array;
 
 public class MatrixCheck {
-
     public static boolean monoHorizontal(char[][] board, int row) {
         boolean result = false;
         for (int cell = 0; cell != board.length; cell++) {
@@ -23,7 +22,7 @@ public class MatrixCheck {
             } else {
                 result = false;
                 break;
-            };
+            }
         }
         return result;
     }
@@ -33,10 +32,10 @@ public class MatrixCheck {
         for (int row = 0; row != board.length; row++) {
             for (int cell = 0; cell != board.length; cell++) {
                 if (board[row][cell] == 'X') {
-                    if (monoHorizontal(board, row) == true) {
+                    if (monoHorizontal(board, row)) {
                         result = true;
                         break;
-                    } else if (monoVertical(board, cell) == true) {
+                    } else if (monoVertical(board, cell)) {
                         result = true;
                         break;
                     } else {
@@ -44,7 +43,7 @@ public class MatrixCheck {
                     }
                 }
             }
-            if (result == true) {
+            if (result) {
                 break;
             }
         }

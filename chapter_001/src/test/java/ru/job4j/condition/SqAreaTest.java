@@ -8,19 +8,19 @@ public class SqAreaTest {
 
     @Test
     public void square() {
-        int in_p = 4;
-        int in_k = 1;
+        int inp = 4;
+        int ink = 1;
         double expected = 1.0;
-        double out = SqArea.square(in_p, in_k);
+        double out = SqArea.square(inp, ink);
         Assert.assertEquals(expected, out, 0.01);
     }
 
     @Test
     public void square2() {
-        int in_p = 6;
-        int in_k = 2;
+        int inp = 6;
+        int ink = 2;
         double expected = 2.0;
-        double out = SqArea.square(in_p, in_k);
+        double out = SqArea.square(inp, ink);
         Assert.assertEquals(expected, out, 0.01);
     }
 }

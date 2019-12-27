@@ -3,7 +3,7 @@ package ru.job4j.array;
 
 public class Square {
     static int square(int a) {
-        return a*a;
+        return a * a;
     }
 
     public int[] calculate(int bound) {

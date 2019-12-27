@@ -16,21 +16,21 @@ public class SqMaxTest {
     @Test
     public void whenSecondMax() {
         SqMax check = new SqMax();
-        int result = check.max(5,7,4,2);
+        int result = check.max(5, 7, 4, 2);
         assertThat(result, is(7));
     }
 
     @Test
     public void whenThirdMax() {
         SqMax check = new SqMax();
-        int result = check.max(5,4,8,3);
+        int result = check.max(5, 4, 8, 3);
         assertThat(result, is(8));
     }
 
     @Test
     public void whenForthMax() {
         SqMax check = new SqMax();
-        int result = check.max(3,7,2,8);
+        int result = check.max(3, 7, 2, 8);
         assertThat(result, is(8));
     }
 }

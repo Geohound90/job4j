@@ -8,7 +8,7 @@ public class Car {
     }
 
     public void fill(int gas) {
-        this.volume = this.volume + 10*gas;
+        this.volume = this.volume + 10 * gas;
     }
 
     public boolean canDrive() {
