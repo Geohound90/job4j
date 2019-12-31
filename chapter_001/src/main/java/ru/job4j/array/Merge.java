@@ -9,22 +9,16 @@ public class Merge {
         int leftIndex = 0;
         int rightIndex = 0;
         int[] rsl = new int[left.length + right.length];
-        if (leftIndex == left.length) {
-            System.arraycopy(right, rightIndex, rsl, newIndex++, right.length - rightIndex);
-        } else if (rightIndex == right.length) {
-            System.arraycopy(left, leftIndex, rsl, newIndex++, left.length - leftIndex);
-        } else while (newIndex < rsl.length) {
-            rsl[newIndex] = left[leftIndex] < right[rightIndex] ? left[leftIndex++] : right[rightIndex++];
-            if (leftIndex == left.length) {
-                System.arraycopy(right, rightIndex, rsl, ++newIndex, right.length - rightIndex);
-                break;
+
+            while (newIndex < rsl.length) {
+                if (leftIndex == left.length) {
+                    rsl[newIndex++] = right[rightIndex++];
+                } else if (rightIndex == right.length) {
+                    rsl[newIndex++] = left[leftIndex++];
+                } else {
+                    rsl[newIndex++] = left[leftIndex] < right[rightIndex] ? left[leftIndex++] : right[rightIndex++];
+                }
             }
-            if (rightIndex == right.length) {
-                System.arraycopy(left, leftIndex, rsl, ++newIndex, left.length - leftIndex);
-                break;
-            }
-            newIndex++;
-        }
         return rsl;
     }
 
@@ -32,7 +26,7 @@ public class Merge {
         Merge process = new Merge();
         int[] rsl = process.merge(
                 new int[] {1, 3, 5},
-                new int[] {}
+                new int[] {2, 4}
         );
         System.out.println(Arrays.toString(rsl));
     }
