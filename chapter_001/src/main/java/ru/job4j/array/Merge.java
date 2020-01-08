@@ -3,20 +3,18 @@ package ru.job4j.array;
 import java.util.Arrays;
 
 public class Merge {
-
     public static int[] merge(int[] left, int[] right) {
-        int newIndex = 0;
-        int leftIndex = 0;
-        int rightIndex = 0;
+        int count = 0;
+        int leftside = 0;
+        int rightside = 0;
         int[] rsl = new int[left.length + right.length];
-
-            while (newIndex < rsl.length) {
-                if (leftIndex == left.length) {
-                    rsl[newIndex++] = right[rightIndex++];
-                } else if (rightIndex == right.length) {
-                    rsl[newIndex++] = left[leftIndex++];
+            while (count < rsl.length) {
+                if (leftside == left.length) {
+                    rsl[count++] = right[rightside++];
+                } else if (rightside == right.length) {
+                    rsl[count++] = left[leftside++];
                 } else {
-                    rsl[newIndex++] = left[leftIndex] < right[rightIndex] ? left[leftIndex++] : right[rightIndex++];
+                    rsl[count++] = left[leftside] < right[rightside] ? left[leftside++] : right[rightside++];
                 }
             }
         return rsl;

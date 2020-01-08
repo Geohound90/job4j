@@ -1,7 +1,6 @@
 package ru.job4j.array;
 
 public class EndsWith {
-
     public static boolean endsWithBack(char[] word, char[] post) {
         boolean result = false;
         int size = word.length - post.length;

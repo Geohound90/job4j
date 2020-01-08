@@ -4,8 +4,8 @@ public class CarUsage {
     public static void main(String[] args) {
         Car audi = new Car();
         boolean driving = audi.canDrive();
-        String carSays = driving ? "I can drive" : "I can't drive";
-        System.out.println(carSays);
+        String status = driving ? "I can drive" : "I can't drive";
+        System.out.println(status);
         System.out.println("Can you drive? : " + driving);
         System.out.println("I am going to a gas station.");
         int gas = 25;
