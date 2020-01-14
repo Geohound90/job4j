@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 public class Predator extends Animal {
 
     public Predator() {
-        super();
-        System.out.println("class Predator");
+        String name = "class Predator";
+        System.out.println(name);
     }
 }
