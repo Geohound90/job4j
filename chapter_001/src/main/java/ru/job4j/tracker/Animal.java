@@ -3,7 +3,11 @@ package ru.job4j.tracker;
 public class Animal {
 
     public Animal() {
-        String name = "class Animal";
+        super();
+        System.out.println("Animal");
+    }
+
+    public Animal(String name) {
         System.out.println(name);
     }
 
