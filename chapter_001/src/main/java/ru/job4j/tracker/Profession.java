@@ -1,13 +1,13 @@
 package ru.job4j.tracker;
 
 public class Profession {
-    public String name;
+    private String name;
 
-    public String surname;
+    private String surname;
 
-    public String education;
+    private String education;
 
-    public String birthday;
+    private String birthday;
 
     public String getName(Profession profession) {
         return name;

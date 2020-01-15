@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 public class Engineer extends Profession {
-    public int experience;
+    private int experience;
 
     public void design() {
     }

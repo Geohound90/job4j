@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 public class Dentist extends Doctor {
-    public int teeth;
+    private int teeth;
 
     public void injectPainMedication() {
     }

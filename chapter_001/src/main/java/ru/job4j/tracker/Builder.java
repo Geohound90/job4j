@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 public class Builder extends Engineer {
-    public String category;
+    private String category;
 
     public void readingDrawing() {
     }
