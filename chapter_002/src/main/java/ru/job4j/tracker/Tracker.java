@@ -64,10 +64,11 @@ public class Tracker {
     }
 
     public void delete(String id) {
-        if (indexOf(id) != -1) {
-            int start = indexOf(id) + 1;
-            int distPos = indexOf(id);
-            int size = position - indexOf(id);
+        int index = indexOf(id);
+        if (index != -1) {
+            int start = index + 1;
+            int distPos = index;
+            int size = position - index;
             System.arraycopy(items, start, items, distPos, size);
             items[position] = null;
             position--;
