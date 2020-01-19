@@ -37,13 +37,23 @@ public class Tracker {
     }
 
     public Item findById(String id) {
-        Item item = null;
+        return items[indexOf(id)];
+    }
+
+    private int indexOf(String id) {
+        int rsl = -1;
         for (int index = 0; index < position; index++) {
-            if (this.items[index].getId().equals(id)) {
-                item = this.items[index];
+            if (items[index].getId().equals(id)) {
+                rsl = index;
                 break;
             }
         }
-        return item;
+        return rsl;
+    }
+
+    public void replace(String id, Item item) {
+        int index = indexOf(id);
+        item.setId(items[index].getId());
+        items[index] = item;
     }
 }
