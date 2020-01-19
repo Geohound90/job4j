@@ -41,7 +41,7 @@ public class Tracker {
     }
 
     private int indexOf(String id) {
-        int rsl = -1;
+        int rsl = position + 1;
         for (int index = 0; index < position; index++) {
             if (items[index].getId().equals(id)) {
                 rsl = index;
@@ -55,5 +55,14 @@ public class Tracker {
         int index = indexOf(id);
         item.setId(items[index].getId());
         items[index] = item;
+    }
+
+    public void delete(String id) {
+        int start = indexOf(id) + 1;
+        int distPos = indexOf(id);
+        int size = position - indexOf(id);
+        System.arraycopy(items, start, items, distPos, size);
+        items[position] = null;
+        position--;
     }
 }
