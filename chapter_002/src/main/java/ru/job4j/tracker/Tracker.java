@@ -37,7 +37,11 @@ public class Tracker {
     }
 
     public Item findById(String id) {
-        return items[indexOf(id)];
+        if (indexOf(id) != -1) {
+            return items[indexOf(id)];
+        } else {
+            return null;
+        }
     }
 
     private int indexOf(String id) {
@@ -60,11 +64,13 @@ public class Tracker {
     }
 
     public void delete(String id) {
-        int start = indexOf(id) + 1;
-        int distPos = indexOf(id);
-        int size = position - indexOf(id);
-        System.arraycopy(items, start, items, distPos, size);
-        items[position] = null;
-        position--;
+        if (indexOf(id) != -1) {
+            int start = indexOf(id) + 1;
+            int distPos = indexOf(id);
+            int size = position - indexOf(id);
+            System.arraycopy(items, start, items, distPos, size);
+            items[position] = null;
+            position--;
+        }
     }
 }
