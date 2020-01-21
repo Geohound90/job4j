@@ -20,7 +20,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        return Arrays.copyOf(items,position);
+        return Arrays.copyOf(items, position);
     }
 
     public Item[] findByName(String key) {
