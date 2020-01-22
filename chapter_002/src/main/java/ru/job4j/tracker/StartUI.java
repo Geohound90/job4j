@@ -8,7 +8,6 @@ public class StartUI {
             System.out.println("Item #" + index);
             System.out.println("Id: " + item[index].getId());
             System.out.println("Name: " + item[index].getName());
-            System.lineSeparator();
         }
     }
 
@@ -39,12 +38,11 @@ public class StartUI {
                 System.out.println("------ Item editing ------");
                 System.out.println("List of items on Tracker:");
                 showItems(items, items.length);
-                System.out.print("Please enter the item number you want to edit: ");
-                int num = Integer.valueOf(choose.nextLine());
-                if (num > items.length || num < 0) {
+                System.out.print("Please enter the item id you want to edit: ");
+                String id = choose.nextLine();
+                if (tracker.findById(id) == null) {
                     System.out.println("Incorrect input!");
                 } else {
-                    String id = items[num].getId();
                     System.out.print("Please, enter new name: ");
                     String name = scanner.nextLine();
                     Item item = new Item(name);
@@ -57,12 +55,11 @@ public class StartUI {
                 System.out.println("------ Deleting item ------");
                 System.out.println("List of items on Tracker:");
                 showItems(items, items.length);
-                System.out.print("Please enter the item number you want to delete: ");
-                int num = Integer.valueOf(choose.nextLine());
-                if (num > items.length || num < 0) {
+                System.out.print("Please enter the item id you want to delete: ");
+                String id = choose.nextLine();
+                if (tracker.findById(id) == null) {
                     System.out.println("Incorrect input!");
                 } else {
-                    String id = items[num].getId();
                     tracker.delete(id);
                     System.out.println("Item successfully deleted!");
                 }
