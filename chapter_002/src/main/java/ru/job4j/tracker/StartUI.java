@@ -34,25 +34,23 @@ public class StartUI {
                 System.out.println("List of items on Tracker:");
                 showItems(items, items.length);
                 String id = input.askStr("Please enter the item id you want to edit: ");
-                if (tracker.findById(id) == null) {
-                    System.out.println("Incorrect input!");
-                } else {
-                    String name = input.askStr("Please, enter new name: ");
-                    Item item = new Item(name);
-                    tracker.replace(id, item);
+                String name = input.askStr("Please, enter new name: ");
+                Item item = new Item(name);
+                if (tracker.replace(id, item)) {
                     System.out.println("Item successfully edited!");
+                } else {
+                    System.out.println("Incorrect input!");
                 }
             } else if (select == 3) {
                 Item[] items = tracker.findAll();
                 System.out.println("------ Deleting item ------");
                 System.out.println("List of items on Tracker:");
                 showItems(items, items.length);
-                String id = input.askStr("Please enter the item id you want to edit: ");
-                if (tracker.findById(id) == null) {
-                    System.out.println("Incorrect input!");
-                } else {
-                    tracker.delete(id);
+                String id = input.askStr("Please enter the item id you want to delete: ");
+                if (tracker.delete(id)) {
                     System.out.println("Item successfully deleted!");
+                } else {
+                    System.out.println("Incorrect input!");
                 }
             } else if (select == 4) {
                 System.out.println("----- Finding item by id ------");

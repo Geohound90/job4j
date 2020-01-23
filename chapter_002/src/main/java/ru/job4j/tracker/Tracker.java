@@ -55,16 +55,20 @@ public class Tracker {
         return rsl;
     }
 
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean rsl = false;
         int index = indexOf(id);
         if (index != -1) {
             item.setId(items[index].getId());
             items[index] = item;
+            rsl = true;
         }
+        return rsl;
     }
 
-    public void delete(String id) {
+    public boolean delete(String id) {
         int index = indexOf(id);
+        boolean rsl = false;
         if (index != -1) {
             int start = index + 1;
             int distPos = index;
@@ -72,6 +76,8 @@ public class Tracker {
             System.arraycopy(items, start, items, distPos, size);
             items[position] = null;
             position--;
+            rsl = true;
         }
+        return rsl;
     }
 }
