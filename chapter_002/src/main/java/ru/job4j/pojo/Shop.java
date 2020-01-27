@@ -10,7 +10,7 @@ public class Shop {
     }
 
     public static void main(String[] args) {
-        Product products[] = new Product[5];
+        Product[] products = new Product[5];
         products[0] = new Product("Milk", 10);
         products[1] = new Product("Bread", 4);
         products[2] = new Product("Egg", 19);
@@ -51,7 +51,7 @@ public class Shop {
         System.lineSeparator();
         System.out.println("Проверка метода delete.");
         Shop shop = new Shop();
-        Product result[] = shop.delete(products, 0);
+        Product[] result = shop.delete(products, 0);
         for (int i = 0; i < result.length; i++) {
             Product product = result[i];
             if (product != null) {
