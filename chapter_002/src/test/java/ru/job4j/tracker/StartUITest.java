@@ -47,4 +47,14 @@ public class StartUITest {
         String expected = null;
         assertThat(replaced, is(expected));
     }
+
+    @Test
+    public void whenExit() {
+        StubInput input = new StubInput(
+                new String[] {"1"}
+        );
+        StubAction action = new StubAction();
+        new StartUI().init(input, new Tracker(), new UserAction[] { new CreateAction(), action });
+        assertThat(action.isCall(), is(true));
+    }
 }
