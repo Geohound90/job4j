@@ -9,8 +9,6 @@ public class EditAction implements UserAction {
     @Override
     public boolean execute(Input input, Tracker tracker) {
         Item[] items = tracker.findAll();
-        System.out.println("List of items on Tracker:");
-        StartUI.showItems(items, items.length);
         String id = input.askStr("Please enter the item id you want to edit: ");
         String name = input.askStr("Please, enter new name: ");
         Item item = new Item(name);
