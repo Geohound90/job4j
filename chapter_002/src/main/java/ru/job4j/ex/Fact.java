@@ -13,7 +13,7 @@ public class Fact {
     }
 
     public static void main(String[] args) {
-        int num = 0;
+        int num = 3;
         System.out.println("Factorial of " + num + " is: " + calc(num));
     }
 }
