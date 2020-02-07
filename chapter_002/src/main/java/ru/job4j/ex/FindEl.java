@@ -16,16 +16,38 @@ public class FindEl {
         return rsl;
     }
 
+    public static boolean sent(String value, String[] abuses) throws ElementsAbuseException {
+        for (String find:abuses) {
+            if (find == value) {
+                throw new ElementsAbuseException("Element " + find + " abused!");
+            }
+        }
+        return true;
+    }
+
+    public static void process(String[] values, String key, String[] abuses) {
+        try {
+            if (indexOf(values, key) != -1) {
+                sent(key, abuses);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         String[] array = new String[] {
                 "Opel",
                 "Mazda",
                 "Toyota"
         };
-        try {
-            System.out.println(indexOf(array, "Lada"));
-        } catch (ElementNotFoundException e) {
-            e.printStackTrace();
-        }
+        String[] abuse = new String[] {
+                "Lada",
+                "Opel",
+                "Nissan"
+        };
+        process(array, "Opel", abuse);
     }
+
+
 }
