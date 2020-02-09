@@ -5,7 +5,7 @@ public class FindEl {
         int rsl = -1;
         int index = 0;
         for (String find:value) {
-            if (find == key) {
+            if (find.equals(key)) {
                 rsl = index;
             }
             index++;
@@ -18,7 +18,7 @@ public class FindEl {
 
     public static boolean sent(String value, String[] abuses) throws ElementsAbuseException {
         for (String find:abuses) {
-            if (find == value) {
+            if (find.equals(value)) {
                 throw new ElementsAbuseException("Element " + find + " abused!");
             }
         }
