@@ -16,9 +16,6 @@ public class ValidateStubInput extends ValidateInput {
     @Override
     public int askInt(String question, int max) {
         int select = super.askInt(question, max);
-   /*     if (select >= 0 && select < max) {
-            return select;
-        }*/
         return select;
     }
 }
