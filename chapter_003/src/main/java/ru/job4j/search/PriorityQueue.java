@@ -17,6 +17,6 @@ public class PriorityQueue {
     }
 
     public Task take() {
-        return tasks.remove(0);
+        return tasks.removeFirst();
     }
 }
