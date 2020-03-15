@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EditAction implements UserAction {
     @Override
     public String name() {
@@ -8,7 +11,7 @@ public class EditAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        Item[] items = tracker.findAll();
+        List<Item> items = tracker.findAll();
         String id = input.askStr("Please enter the item id you want to edit: ");
         String name = input.askStr("Please, enter new name: ");
         Item item = new Item(name);

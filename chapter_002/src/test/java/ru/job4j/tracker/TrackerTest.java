@@ -1,6 +1,10 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -18,12 +22,12 @@ public class TrackerTest {
     @Test
     public void showAllItems() {
         Tracker tracker = new Tracker();
-        Item[] item = new Item[2];
-        for (int i = 0; i < item.length; i++) {
-            item[i] = new Item("name" + (i + 1));
-            tracker.add(item[i]);
-        }
-        Item[] result = tracker.findAll();
+        ArrayList<Item> item = new ArrayList<>();
+        item.add(new Item("name1"));
+        item.add(new Item("name2"));
+        tracker.add(item.get(0));
+        tracker.add(item.get(1));
+        List<Item> result = tracker.findAll();
         assertThat(result, is(item));
 }
 
@@ -39,14 +43,19 @@ public class TrackerTest {
     @Test
     public void findItemByName() {
         Tracker tracker = new Tracker();
-        Item[] item = new Item[4];
-        for (int i = 0; i < item.length; i++) {
-            item[i] = new Item("name" + (i + 1));
-            tracker.add(item[i]);
+        ArrayList<Item> item = new ArrayList<>();
+        item.add(new Item("name1"));
+        item.add(new Item("name2"));
+        item.add(new Item("name3"));
+        item.add(new Item("name4"));
+        for (int i = 0; i < item.size(); i++) {
+            tracker.add(item.get(i));
         }
-        item[3].setName("name1");
-        Item[] control = new Item[] {item[0], item[3]};
-        Item[] result = tracker.findByName("name1");
+        item.get(3).setName("name1");
+        ArrayList<Item> control = new ArrayList<>(); //Item[] {item[0], item[3]};
+        control.add(item.get(0));
+        control.add(item.get(3));
+        List<Item> result = tracker.findByName("name1");
         assertThat(result, is(control));
     }
 
