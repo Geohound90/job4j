@@ -12,29 +12,29 @@ import static org.junit.Assert.assertThat;
 public class ItemSortTest {
     @Test
     public void sortItemTest() {
-        List<Item> item = new ArrayList<>();
-        List<Item> items = new ArrayList<>();
-        item.add(new Item("name2"));
-        item.add(new Item("name1"));
-        item.add(new Item("name3"));
-        items.add(item.get(1));
-        items.add(item.get(0));
-        items.add(item.get(2));
-        Collections.sort(item, new ItemSort());
-        assertThat(items, is(item));
+        List<Item> input = new ArrayList<>();
+        List<Item> expected = new ArrayList<>();
+        input.add(new Item("name2"));
+        input.add(new Item("name1"));
+        input.add(new Item("name3"));
+        expected.add(input.get(1));
+        expected.add(input.get(0));
+        expected.add(input.get(2));
+        Collections.sort(input, new ItemSort());
+        assertThat(expected, is(input));
     }
 
     @Test
     public void reverseSortItemTest() {
-        List<Item> item = new ArrayList<>();
-        List<Item> items = new ArrayList<>();
-        item.add(new Item("name2"));
-        item.add(new Item("name1"));
-        item.add(new Item("name3"));
-        items.add(item.get(2));
-        items.add(item.get(0));
-        items.add(item.get(1));
-        Collections.sort(item, new ItemSortReverse());
-        assertThat(items, is(item));
+        List<Item> input = new ArrayList<>();
+        List<Item> expected = new ArrayList<>();
+        input.add(new Item("name2"));
+        input.add(new Item("name1"));
+        input.add(new Item("name3"));
+        expected.add(input.get(2));
+        expected.add(input.get(0));
+        expected.add(input.get(1));
+        Collections.sort(input, new ItemSortReverse());
+        assertThat(expected, is(input));
     }
 }
