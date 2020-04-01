@@ -1,4 +1,7 @@
 # используем язык java. Travis CI поддерживает другие языки тоже.
+env:
+  global:
+    - CODECOV_TOKEN="162524bb-e871-456f-8c61-8c3d9d45a29e"
 language: java
 jdk:
   - openjdk13
@@ -18,7 +21,3 @@ notifications:
       - geohound90@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
-
-env:
-  global:
-    - CODECOV_TOKEN="162524bb-e871-456f-8c61-8c3d9d45a29e"
