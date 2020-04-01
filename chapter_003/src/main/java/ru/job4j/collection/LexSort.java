@@ -20,7 +20,9 @@ public class LexSort implements Comparator<String> {
                     index++;
                 }
                 first = Integer.parseInt(sb.toString());
-            } else index++;
+            } else {
+                index++;
+            }
         }
         index = 0;
         while (index < right.length()) {
@@ -30,7 +32,9 @@ public class LexSort implements Comparator<String> {
                     index++;
                 }
                 second = Integer.parseInt(sb2.toString());
-            } else index++;
+            } else {
+                index++;
+            }
         }
         return Integer.compare(first, second);
     }
