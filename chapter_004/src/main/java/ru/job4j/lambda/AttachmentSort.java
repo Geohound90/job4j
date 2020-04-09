@@ -1,6 +1,5 @@
 package ru.job4j.lambda;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Arrays;
 import java.util.List;
@@ -12,21 +11,17 @@ public class AttachmentSort {
                 new Attachment("image 2", 22),
                 new Attachment("image 3", 10)
         );
-        Comparator<Attachment> comparator = new Comparator<>() {
-            @Override
-            public int compare(Attachment left, Attachment right) {
-                return left.getSize() - right.getSize();
-            }
+        Comparator<Attachment> sizeDesc = (left, right) -> {
+            System.out.println("compare sizes: " + right.getSize() + " - " + left.getSize());
+            return right.getSize() - left.getSize();
         };
-        attachments.sort(comparator);
+        attachments.sort(sizeDesc);
         System.out.println(attachments);
-        Comparator<Attachment> nameAsc = new Comparator<>() {
-            @Override
-            public int compare(Attachment left, Attachment right) {
-                return left.getName().compareTo(right.getName());
-            }
+        Comparator<Attachment> nameDesc = (left, right) -> {
+            System.out.println("compare names: " + right.getName() + " - " + left.getName());
+            return right.getName().compareTo(left.getName());
         };
-        attachments.sort(nameAsc);
+        attachments.sort(nameDesc);
         System.out.println(attachments);
     }
 }
