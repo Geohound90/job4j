@@ -19,28 +19,22 @@ public class SearchAtt {
     }
 
     public static List<Attachment> filterSize(List<Attachment> list) {
-        UnaryOperator<Attachment> func = new UnaryOperator<Attachment>() {
-            @Override
-            public Attachment apply(Attachment attachment) {
-                if (attachment.getSize() > 100) {
-                    return attachment;
-                } else {
-                    return null;
-                }
+        UnaryOperator<Attachment> func = (attachment) -> {
+            if (attachment.getSize() > 100) {
+                return attachment;
+            } else {
+                return null;
             }
         };
         return filter(list, func);
     }
 
     public static List<Attachment> filterName(List<Attachment> list) {
-        UnaryOperator<Attachment> func = new UnaryOperator<Attachment>() {
-            @Override
-            public Attachment apply(Attachment attachment) {
-                if (attachment.getName().contains("bug")) {
-                    return attachment;
-                } else {
-                    return null;
-                }
+        UnaryOperator<Attachment> func = (attachment) -> {
+            if (attachment.getName().contains("bug")) {
+                return attachment;
+            } else {
+                return null;
             }
         };
         return filter(list, func);
