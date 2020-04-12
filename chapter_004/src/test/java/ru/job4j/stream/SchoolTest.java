@@ -1,0 +1,65 @@
+package ru.job4j.stream;
+
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
+public class SchoolTest {
+    @Test
+    public void whenFilterStudentsTo10A() {
+        School school = new School();
+        List<Student> students = Arrays.asList(
+                new Student(10),
+                new Student(60),
+                new Student(40),
+                new Student(100),
+                new Student(90)
+        );
+        Predicate<Student> predicate = student -> (student.getScore() >= 70 && student.getScore() <= 100);
+        List<Student> result = school.collect(students, predicate);
+        List<Student> expected = new ArrayList<>();
+        expected.add(students.get(3));
+        expected.add(students.get(4));
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenFilterStudentsTo10B() {
+        School school = new School();
+        List<Student> students = Arrays.asList(
+                new Student(10),
+                new Student(60),
+                new Student(40),
+                new Student(100),
+                new Student(90)
+        );
+        Predicate<Student> predicate = student -> (student.getScore() >= 50 && student.getScore() < 70);
+        List<Student> result = school.collect(students, predicate);
+        List<Student> expected = new ArrayList<>();
+        expected.add(students.get(1));
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenFilterStudentsTo10C() {
+        School school = new School();
+        List<Student> students = Arrays.asList(
+                new Student(10),
+                new Student(60),
+                new Student(40),
+                new Student(100),
+                new Student(90)
+        );
+        Predicate<Student> predicate = student -> (student.getScore() >= 0 && student.getScore() < 50);
+        List<Student> result = school.collect(students, predicate);
+        List<Student> expected = new ArrayList<>();
+        expected.add(students.get(0));
+        expected.add(students.get(2));
+        assertThat(result, is(expected));
+    }
+}
