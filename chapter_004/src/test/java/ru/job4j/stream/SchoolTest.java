@@ -14,11 +14,11 @@ public class SchoolTest {
     public void whenFilterStudentsTo10A() {
         School school = new School();
         List<Student> students = Arrays.asList(
-                new Student(10),
-                new Student(60),
-                new Student(40),
-                new Student(100),
-                new Student(90)
+                new Student("name 1", 10),
+                new Student("name 2", 60),
+                new Student("name 3", 40),
+                new Student("name 4", 100),
+                new Student("name 5", 90)
         );
         Predicate<Student> predicate = student -> (student.getScore() >= 70 && student.getScore() <= 100);
         List<Student> result = school.collect(students, predicate);
@@ -32,11 +32,11 @@ public class SchoolTest {
     public void whenFilterStudentsTo10B() {
         School school = new School();
         List<Student> students = Arrays.asList(
-                new Student(10),
-                new Student(60),
-                new Student(40),
-                new Student(100),
-                new Student(90)
+                new Student("name 1", 10),
+                new Student("name 2", 60),
+                new Student("name 3", 40),
+                new Student("name 4", 100),
+                new Student("name 5", 90)
         );
         Predicate<Student> predicate = student -> (student.getScore() >= 50 && student.getScore() < 70);
         List<Student> result = school.collect(students, predicate);
@@ -49,11 +49,11 @@ public class SchoolTest {
     public void whenFilterStudentsTo10C() {
         School school = new School();
         List<Student> students = Arrays.asList(
-                new Student(10),
-                new Student(60),
-                new Student(40),
-                new Student(100),
-                new Student(90)
+                new Student("name 1", 10),
+                new Student("name 2", 60),
+                new Student("name 3", 40),
+                new Student("name 4", 100),
+                new Student("name 5", 90)
         );
         Predicate<Student> predicate = student -> (student.getScore() >= 0 && student.getScore() < 50);
         List<Student> result = school.collect(students, predicate);
