@@ -15,7 +15,7 @@ public class ListToMap {
         System.out.println(students.stream().distinct().collect(
                 Collectors.toMap(
                         student -> student.getFio(),
-                        student -> student.getScore()
+                        student -> (Object) student
                 ))
         );
     }
