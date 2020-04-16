@@ -32,4 +32,26 @@ public class ProfilesTest {
         );
         assertThat(result, is(expected));
     }
+
+    @Test
+    public void whenSortedAndWithoutDuplicates() {
+        Profiles profiles = new Profiles();
+        List<Profile> profile = List.of(
+                new Profile(new Address("Moscow", "Uchinskaya", 10, 30)),
+                new Profile(new Address("Bryansk", "Lobnenskaya", 8, 100)),
+                new Profile(new Address("Podolsk", "Ikshinskaya", 16, 45)),
+                new Profile(new Address("Astrahan", "Dolgoprudnaya", 1, 26)),
+                new Profile(new Address("Podolsk", "Ikshinskaya", 16, 45)),
+                new Profile(new Address("Podolsk", "Angarskaya", 7, 4))
+        );
+        List<Address> result = profiles.collect(profile);
+        List<Address> expected = List.of(
+                new Address("Astrahan", "Dolgoprudnaya", 1, 26),
+                new Address("Bryansk", "Lobnenskaya", 8, 100),
+                new Address("Moscow", "Uchinskaya", 10, 30),
+                new Address("Podolsk", "Angarskaya", 7, 4),
+                new Address("Podolsk", "Ikshinskaya", 16, 45)
+        );
+        assertThat(result, is(expected));
+    }
 }
