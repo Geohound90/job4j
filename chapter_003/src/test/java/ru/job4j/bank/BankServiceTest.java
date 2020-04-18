@@ -11,7 +11,7 @@ public class BankServiceTest {
         User user = new User("12345", "Maxim Pavlov");
         BankService bank = new BankService();
         bank.addUser(user);
-        assertThat(bank.findByPassport("12345").get(0), is(user));
+        assertThat(bank.findByPassport("12345"), is(user));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class BankServiceTest {
         BankService bank = new BankService();
         bank.addUser(user);
         bank.addAccount(user.getPassport(), new Account("6578", 150D));
-        assertThat(bank.findByRequisite("12345", "6578").get(0).getBalance(), is(150D));
+        assertThat(bank.findByRequisite("12345", "6578").getBalance(), is(150D));
     }
 
     @Test
@@ -40,6 +40,6 @@ public class BankServiceTest {
         bank.addAccount(user.getPassport(), new Account("6578", 150D));
         bank.addAccount(user.getPassport(), new Account("111", 50D));
         bank.transferMoney(user.getPassport(), "6578", user.getPassport(), "111", 150D);
-        assertThat(bank.findByRequisite(user.getPassport(), "111").get(0).getBalance(), is(200D));
+        assertThat(bank.findByRequisite(user.getPassport(), "111").getBalance(), is(200D));
     }
 }
