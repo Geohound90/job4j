@@ -5,8 +5,11 @@ import java.util.Map;
 
 public class UsageMap {
     public static void main(String[] args) {
-        HashMap<String, String> map = new HashMap<>();
-        map.put("geohound90@gmail.com", "Pavlov Maxim Igorevich");
+        HashMap<String, String> map = new HashMap<>(
+                Map.of(
+                        "geohound90@gmail.com", "Pavlov Maxim Igorevich"
+                )
+        );
 
         for (String key : map.keySet()) {
             String value = map.get(key);

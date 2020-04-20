@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Arrays;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
@@ -12,12 +11,12 @@ import static org.hamcrest.core.Is.is;
 public class NotifyAccountTest {
     @Test
     public void sent() {
-        List<Account> accounts = Arrays.asList(
+        List<Account> accounts = List.of(
                 new Account("123", "Maxim Pavlov", "aTerc7822g"),
                 new Account("321", "Maxim Pavlov", "0001")
         );
         HashSet<Account> expect = new HashSet<>(
-                Arrays.asList(
+                List.of(
                     new Account("123", "Maxim Pavlov", "aTerc7822g"),
                     new Account("321", "Maxim Pavlov", "0001")
                 )
@@ -27,13 +26,13 @@ public class NotifyAccountTest {
 
     @Test
     public void deleteDuplicatePassport() {
-        List<Account> accounts = Arrays.asList(
+        List<Account> accounts = List.of(
                 new Account("123", "Maxim Pavlov", "aTerc7822g"),
                 new Account("321", "Maxim Pavlov", "0001"),
                 new Account("321", "Maxim Pavlov", "3211")
         );
         HashSet<Account> expect = new HashSet<>(
-                Arrays.asList(
+                List.of(
                         new Account("123", "Maxim Pavlov", "aTerc7822g"),
                         new Account("321", "Maxim Pavlov", "0001")
                 )

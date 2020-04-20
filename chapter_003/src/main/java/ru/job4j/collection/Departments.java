@@ -32,7 +32,7 @@ public class Departments {
     }
 
     public static void main(String[] args) {
-        List<String> input = Arrays.asList("K1/SK1",
+        List<String> input = List.of("K1/SK1",
                 "K1/SK2",
                 "K1/SK1/SSK1",
                 "K1/SK1/SSK2",

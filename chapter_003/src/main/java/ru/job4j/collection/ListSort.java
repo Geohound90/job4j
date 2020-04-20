@@ -1,13 +1,11 @@
 package ru.job4j.collection;
 
-import java.net.SocketTimeoutException;
 import java.util.List;
 import java.util.Collections;
-import java.util.Arrays;
 
 public class ListSort {
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(5, 3, 4, 1, 2);
+        List<Integer> list = List.of(5, 3, 4, 1, 2);
         System.out.println(list);
         Collections.sort(list, Collections.reverseOrder());
         System.out.println(list);
